@@ -45,3 +45,5 @@ end
 
 
 gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
