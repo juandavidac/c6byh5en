@@ -20,8 +20,8 @@ module Api
       end
 
       def update
-         
-        if Product.update(params[:id], product_params)
+         product = Product.update(params[:id], product_params)
+        if product.save
           render json: product, status: 200
         else
           render json: {errors: product.errors}, status: 422
@@ -29,7 +29,7 @@ module Api
       end
 
       def destroy
-        @product = Product.destroy(params[:id], product_params)
+        product = Product.destroy(params[:id], product_params)
         render json: product, status: 204
       end
 
