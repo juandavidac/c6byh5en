@@ -29,8 +29,10 @@ module Api
       end
 
       def destroy
-        product = Product.destroy(params[:id], product_params)
-        render status: 204
+        product =Product.destroy(params[:id], product_params)
+        if product.destroy
+          render json: {}, status: 204
+        end  
       end
 
       private
