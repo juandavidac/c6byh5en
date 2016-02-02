@@ -20,8 +20,8 @@ module Api
       end
 
       def update
-         product = Product.update(params[:id], product_params)
-        if product.save
+         product = Product.find(params[:id])
+        if product.update(product_params)
           render json: product, status: 200
         else
           render json: {errors: product.errors}, status: 422
